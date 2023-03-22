@@ -27,8 +27,6 @@ fs.readFile('./public/index.html','utf8', (err, data) => {
 	 console.error(err);
 	 return;
 }
-	publicdata = data;
-});
 
 
 // Define a const `server` as an arrow function using http.createServer. 
@@ -41,9 +39,8 @@ fs.readFile('./public/index.html','utf8', (err, data) => {
 const server = http.createServer((req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Content-Type', 'text/html');
-	res.end(publicdata);
-})
-
+	res.end(data);
+});
 
 
 // Start the `server` const listening on the port defined by argument in your `port` const. 
@@ -51,7 +48,6 @@ const server = http.createServer((req, res) => {
 	server.listen(port, () => {
 		console.log('Server listening on port ${port}`)
 });
-
-
+	});
 
 // That's it! You're all done!
